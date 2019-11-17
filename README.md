@@ -1,2 +1,1 @@
-# blog
-personal blog
+# 博客
