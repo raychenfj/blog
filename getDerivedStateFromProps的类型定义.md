@@ -120,7 +120,7 @@ class Component<P, S> {
 }
 ```
 
-类型报错，这也是为什么 `props` 的类型检查报错，说没有显示定义 `any`，而没有自动推断出类型为 `IProps` 的原因。（更多关于这个报错的讨论 [Typescript issue 32211](https://github.com/microsoft/TypeScript/issues/32211)）
+类型报错，这也是为什么 `props` 的类型检查报错，说没有显示定义 `any`，而没有自动推断出类型为 `IProps` 的原因。（更多关于这个报错的讨论 [Typescript issue 24018](https://github.com/Microsoft/TypeScript/issues/24018)）
 
 ![](./images/getDerivedStateFromProps的类型定义/2.png)
 
