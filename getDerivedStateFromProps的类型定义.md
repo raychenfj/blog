@@ -1,11 +1,11 @@
 #  typescript 静态方法的范型
 
 
-## 故事背景
+### 故事背景
 
 在维护一个 react 老旧项目时，store 中的状态必须清空后才能重新加载（不是我的代码😂），但是在页面中显示时体验会非常差，造成切换时数据立马消失和页面抖动。现在就要在不重构 store 的前提下来优化这个问题（有风险，不想现在重构😈）。最近刚更新了 react 版本，所以决定试试 react 的新生命周期`getDerivedStateFromProps`，通过派生状态来优化前端的显示。（在使用派生状态之前，[你可能不需要使用派生数据](https://zh-hans.reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html)）
 
-## 实现
+### 实现
 
 ```js
 import React from 'react'
@@ -47,7 +47,7 @@ export default class SomeComponent extends React.Component<IProps> {
 
 ![](./images/getDerivedStateFromProps的类型定义/1.png)
 
-## 探索
+### 探索
 
 决定顺手去翻下 `@type/react` 中相关的类型定义，看下问题在哪。
 
@@ -99,7 +99,7 @@ type GetDerivedStateFromProps<P, S> = (nextProps: Readonly<P>, prevState: S) => 
 
 我们没法实现需求！！！😂 but why？不要相信程序员的接口，让我改改试试。
 
-## 修改
+### 修改
 
 尝试了两个办法：
 
@@ -126,6 +126,6 @@ class Component<P, S> {
 
 我的探索就暂时到此结素，看来还是真是没办法实现😂。
 
-## 更多的问题
+### 更多的问题
 
 `StaticLifecycle` 既然没有用在 Component 中，那它的定义有什么用？
